@@ -6,10 +6,14 @@ button {
   color: white
 }
 
-button.action-button-blue {
+button.midnight-blue {
   background-color: blue
 }
 
-button.action-button-red {
+button.medium-violet-red {
   background-color: red
+}
+
+button.disabled-gray {
+  background-color: gray;
 }
