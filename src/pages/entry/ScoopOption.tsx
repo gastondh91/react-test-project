@@ -1,6 +1,7 @@
 import { Col } from 'react-bootstrap';
+import { IOptions } from './Options';
 
-const ScoopOptions = ({ name, imagePath }: IScoopOptions): JSX.Element => {
+const ScoopOptions = ({ name, imagePath }: IOptions): JSX.Element => {
   return (
     <Col xs={12} sm={6} md={4} lg={3} style={{ textAlign: 'center' }}>
       <img
@@ -11,10 +12,5 @@ const ScoopOptions = ({ name, imagePath }: IScoopOptions): JSX.Element => {
     </Col>
   );
 };
-
-export interface IScoopOptions {
-  name: string;
-  imagePath: string;
-}
 
 export default ScoopOptions;
