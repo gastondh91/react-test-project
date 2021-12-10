@@ -1,13 +1,9 @@
-import { Col, Form, Row } from 'react-bootstrap';
+import { Col, Form, FormCheck, Row } from 'react-bootstrap';
 import { IOptions } from './Options';
 
 const ToppingOption = ({ name, imagePath, updateItemCount }: IOptions): JSX.Element => {
-  const handleChange = (event: any) => {
-    updateItemCount(name, event.target.value);
-  };
-
   return (
-    <Col xs={12} sm={6} md={4} lg={3} style={{ textAlign: 'center' }}>
+    <Col xs={4} sm={4} md={3} lg={2} style={{ textAlign: 'center' }}>
       <img
         style={{ width: '75%' }}
         src={`http://localhost:3030/${imagePath}`}
@@ -18,7 +14,7 @@ const ToppingOption = ({ name, imagePath, updateItemCount }: IOptions): JSX.Elem
           {name}
         </Form.Label>
         <Col xs="5" style={{ textAlign: 'left' }}>
-          <Form.Control type="number" defaultValue={0} onChange={handleChange} />
+          <FormCheck onChange={(event) => updateItemCount(name, event.target.checked ? 1 : 0)} />
         </Col>
       </Form.Group>
     </Col>

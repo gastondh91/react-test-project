@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import { pricePerItem } from '../../constants';
 import { useOrderDetails } from '../../contexts/OrderDetaiils';
+import { formatCurrency } from '../../utilities';
 import AlertBanner from '../common/AlertBanner';
 import ScoopOption from './ScoopOption';
 import ToppingOption from './ToppingOption';
@@ -58,7 +59,7 @@ const Options = ({ optionType }: { optionType: string }): JSX.Element => {
   return (
     <>
       <h2>{title}</h2>
-      <p>{(pricePerItem as any)[optionType]} each</p>
+      <p>{formatCurrency((pricePerItem as any)[optionType])} each</p>
       <p>
         {title} total: {orderDetails.totals[optionType]}
       </p>
@@ -70,7 +71,7 @@ const Options = ({ optionType }: { optionType: string }): JSX.Element => {
 export interface IOptions {
   name: string;
   imagePath: string;
-  updateItemCount: (itemName: string, newItemCount: string, optionType?: string) => void;
+  updateItemCount: (itemName: string, newItemCount: string | number, optionType?: string) => void;
 }
 
 export default Options;
